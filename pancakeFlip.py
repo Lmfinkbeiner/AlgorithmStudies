@@ -15,5 +15,22 @@ def flip(Stack, n):
     return temp[::-1]+(Stack[n+1:len(Stack)])
 #takes in N stack of n pancakes, recursively sorts stack biggest to smallest and returns sorted stack
 def sortPancakes(Stack):
-    pass
+    #Base case
+    n = len(Stack)
+        #stack is 1 element, return it
+    if n == 1:
+        return Stack
+    #find biggest in stack (first instance)
+    biggest = 0
+    for i in range(1,n-1):
+        if Stack[biggest] < Stack[i]:
+            biggest = i
+    #if biggest not in place
+    if biggest < n-1:
+        #flip biggest to top
+        t = flip(Stack,biggest)
+        #flip full stack
+        t = flip(t,n-1)
+    #sort top
+    return sortPancakes(t[0:n-1]) + [t[n-1]]
 
