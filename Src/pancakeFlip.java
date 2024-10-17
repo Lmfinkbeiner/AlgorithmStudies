@@ -1,7 +1,5 @@
 package Src;
 
-import java.util.Arrays;
-
 //import java.util.*;
 //java prog that flips stack of N pancakes at point i
 public class pancakeFlip{
